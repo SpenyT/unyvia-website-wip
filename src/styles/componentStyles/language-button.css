@@ -1,0 +1,138 @@
+/* Default */
+.language {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.language-toggle-wrapper {
+    display: flex;
+    background-color: var(--unyvia_green);
+}
+
+
+.language-toggle {
+    display: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.language-icon {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    transform: translateX(0%) rotate(0deg);
+    animation: 0.5s all ease-in-out
+}
+
+.language-icon[data-theme="fr"] {
+    transform: translateX(100%) rotate(360deg);
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+.language_icon {
+    transition: 0.3s;
+}
+  
+.language_fill {
+    background-color: var(--bg);
+    display: block;
+    mix-blend-mode: difference;
+    position: fixed;
+    inset: 0;
+    height: 100%;
+    transform: translateX(-100%);
+}
+  
+.language__icon,
+.language__toggle {
+    z-index: 1;
+}
+  
+.language__icon,
+.language__icon-part {
+    position: absolute;
+}
+  
+.language__icon {
+    display: block;
+    top: 0.5em;
+    left: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+}
+  
+.language_label,
+.language_toggle,
+.language_toggle-wrap {
+    position: relative;
+}
+  
+.language_toggle,
+.language_toggle:before {
+    display: block;
+}
+  
+.language_toggle {
+    background-color: hsl(48,90%,85%);
+    border-radius: 25% / 50%;
+    padding: 0.25em;
+    width: 6em;
+    height: 3em;
+    -webkit-appearance: none;
+    appearance: none;
+}
+  
+.language_toggle:before {
+    background-color: hsl(48,90%,55%);
+    border-radius: 50%;
+    content: "";
+    width: 2.5em;
+    height: 2.5em;
+    transition: 0.3s;
+}
+  
+.language_toggle:focus {
+    outline: transparent;
+}
+  
+  /* Checked */
+.language_toggle:checked {
+    background-color: hsl(198,90%,15%);
+}
+  
+.language_toggle:checked:before,
+.language_toggle:checked ~ .language_icon {
+    transform: translateX(3em);
+}
+  
+.language_toggle:checked:before {
+    background-color: hsl(198,90%,55%);
+}
+  
+.language_toggle:checked ~ .language_fill {
+    transform: translateX(0);
+}
+  
+.language_toggle-wrap {
+    margin: 0 0.75em;
+}

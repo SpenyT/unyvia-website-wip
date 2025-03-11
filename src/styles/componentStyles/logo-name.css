@@ -1,0 +1,53 @@
+.logo-box {
+    left:0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 20px;
+    gap: 8px;
+    color: #fff;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+}
+
+.unyvia-sphere {
+    position: absolute;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    color: var(--unyvia_green)
+}
+
+.logo-inner-ring {
+    position: absolute;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-outer-ring {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-box:hover {
+    .logo-inner-ring {
+        transform: rotate(180deg) scale(1.2);
+    }
+
+    .logo-outer-ring {
+        transform: rotate(-180deg) scale(1.2);
+    }
+
+    .unyvia-sphere {
+        transform: scale(1.1);
+    }
+}
+
+.right-side {
+    display: flex;
+    flex-direction: row;
+}
+

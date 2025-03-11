@@ -1,0 +1,114 @@
+:root {
+    /*Global variables*/
+    --unyvia_navy: #0c1921;
+    --unyvia_navy2: #162d3c;
+    --unyvia_navy3: rgb(24, 45, 59);
+    --unyvia_navy4: ;
+    --unyvia_green: #45972f;
+    --unyvia_lightgreen: #98c44f;
+    --unyvia_purple: #8b3dff;
+    --unyvia_white: #ffffff;
+    --unyvia_violet: #a503e0;
+    --unyvia_orange: #ff8c00;
+    --unyvia_skyblue: #007bff;
+    --unyvia_navy_gradient: linear-gradient(to right, var(--unyvia_navy), var(--unyvia_navy2), var(--unyvia_navy));
+    --unyvia_navy_gradient2: linear-gradient(to right, var(--unyvia_navy2), var(--unyvia_navy), var(--unyvia_navy2));
+
+
+    --green_gradient: linear-gradient(to bottom, var(--unyvia_lightgreen), var(--unyvia_green));
+    --green_gradient2: linear-gradient(to bottom, var(--unyvia_green), var(--unyvia_lightgreen));
+
+    /* --background-gradient: linear-gradient(); */
+
+
+    /* lighting theme */
+    --lighting-theme: 255, 140, 0;
+    --hvac-theme: 69, 151, 47;
+    --audits-theme: 0, 123, 255;
+    --decarb-theme: 139, 61, 255;
+    --finance-theme: 255, 215, 0;
+
+    --theme: white;
+
+ 
+
+    --footer-background: linear-gradient(to bottom right, var(--unyvia_navy), var(--unyvia_navy2))
+}
+
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255);
+    background-color: white;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,::before,::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-block-size: 100vh;
+    /* overflow: hidden; */
+
+    /* background-repeat: no-repeat; */
+    background-image: var(--unyvia_navy_gradient);
+
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    background: var(--unyvia_navy_gradient);
+}
+
+header {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button,input,optgroup,select,textarea {
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    -webkit-letter-spacing: inherit;
+    -moz-letter-spacing: inherit;
+    -ms-letter-spacing: inherit;
+    letter-spacing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+button,select {
+    text-transform: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+
+.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.inactive {
+    visibility: hidden;
+    opacity: 0;
+}

@@ -1,0 +1,80 @@
+
+.navbar {
+    position: fixed;
+    top: 0;
+    padding: 1em 0 0 0;
+    z-index: 2;
+    width: 100%;
+}
+
+
+.navbar-container {
+    width: clamp(400px, 70%, 1280px);
+    height: 75px;
+    margin: auto;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+    border: 1px solid var(--unyvia_navy2);
+    background: linear-gradient(145deg, rgba(13, 27, 35, 0.7), rgba(11, 23, 30, 0.7));
+    /* box-shadow:  12px 12px 24px #070f14,
+                    -12px -12px 24px #11232e; */
+    
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    animation: slideDown 0.8s ease forwards;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+}
+
+.right-side {
+    position: absolute;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    right: 1em;
+}
+
+.takeme-button-container {
+    text-decoration: none;
+}
+
+
+.takeme-button {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2em 1.2em;
+    color: white;
+    border-radius: 1000px;
+    background: linear-gradient(15deg, var(--unyvia_green), var(--unyvia_lightgreen), var(--unyvia_green)) no-repeat;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+    background-size: 300%;
+    background-position: left center;
+    transition: all 0.2s ease-in-out;
+}
+
+.takeme-button:hover {
+    background-size: 320%;
+    background-position: right center;
+}
+
+.takeme-button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+
+
+
