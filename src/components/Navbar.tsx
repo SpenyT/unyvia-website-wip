@@ -1,20 +1,33 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguageContext } from '../LanguageContext';
 
 import LogoName from './LogoName';
 import GlobeWire from '../assets/globe_wire.svg?react';
 import UkFlag from '../assets/uk_flag.svg?react';
-import FrenchFlag from '../assets/french_flag.svg?react';
+import FranceFlag from '../assets/france_flag.svg?react';
+
 
 import '../styles/componentStyles/navbar.css';
+
+type language = {
+    language: string,
+    abreviation: string,
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>
+}
+
+
+
+const languages:language[] = [
+    { language: "English", abreviation: "en", Icon: UkFlag },
+    { language: "Français", abreviation: "fr", Icon: FranceFlag },
+]
 
 const LanguageSelect = () => {
     const [isActive, setIsActive] = useState<boolean>(false);
     const buttonRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-
         const handleClickOutside = (e: MouseEvent) => {
             if(buttonRef.current && !buttonRef.current.contains(e.target as Node)) {
                 setIsActive(false);
@@ -35,7 +48,12 @@ const LanguageSelect = () => {
         <div className="language-select-wrapper" ref={buttonRef} onClick={handleSvgClick}>
             <GlobeWire data-theme={isActive ? "active" : ""} id="globewire-icon" />
             <div data-theme={isActive ? "active" : ""} className="language-dropdown" >
-                <span>hello</span><span>world</span>
+            {languages.map((element, index) => (
+                <>
+                    <element.Icon className="language-icon" id={`${element.abreviation}-icon`}/>
+                    <span className="language-text">{element.language}</span>
+                </>
+            ))}
             </div>
         </div>
         

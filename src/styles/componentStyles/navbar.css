@@ -88,7 +88,7 @@
     cursor: pointer;
 }
 
-.language-select-wrapper:hover #globewire-icon,
+#globewire-icon:hover,
 #globewire-icon[data-theme=active] {
     color: grey;
     transition: all 0.1s ease-in-out;
@@ -103,6 +103,7 @@
     display: grid;
     grid-template-columns: auto auto;
     /* min-width: 100%; */
+    align-items: center;
     overflow-y: scroll;
     scrollbar-width: 0;
     -ms-overflow-style: none;
@@ -113,16 +114,17 @@
     border-radius: 5px;
 }
 
-.language-dropdown > :nth-child(2n+1) {
+.language-dropdown > :nth-child(2n-1) {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
     padding: 5px;
 }
+
 .language-dropdown > :nth-child(2n) {
     display: flex;
-    justify-content: left;
-    align-items: center;
+    justify-content: flex-start; /* Aligns to the left */
+    align-items: center; /* Centers vertically */
     padding: 5px;
 }
 

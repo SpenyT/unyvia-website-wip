@@ -1,2 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600"><rect width="900" height="600" fill="#ED2939"/><rect width="600" height="600" fill="#fff"/><rect width="300" height="600" fill="#002395"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="40" height="24">
+  <rect x="0" y="0" width="16.67" height="30" fill="#002395"/>
+  <rect x="16.67" y="0" width="16.67" height="30" fill="#ffffff"/>
+  <rect x="33.33" y="0" width="16.67" height="30" fill="#ED2939"/>
+</svg>
