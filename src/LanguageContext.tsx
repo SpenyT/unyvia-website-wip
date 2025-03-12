@@ -7,6 +7,7 @@ export type LanguageContextItem = {
 export type LanguageContextValue = {
     language: LanguageContextItem,
     registerLanguage: (language: LanguageContextItem) => void,
+    validateSupportedLanguage: (selectedLanguage: string) => boolean
 }
 
 const supportedLanguages = ["en", "fr"];
@@ -21,7 +22,7 @@ export const LanguageContextProvider: React.FC<{ children: React.ReactNode }> = 
     useEffect(() => {
         if(!hasRun.current) {
             let currLang = navigator.language.split('-')[0] || "en";
-            if (!supportedLanguages.includes(currLang)) {
+            if (!validateSupportedLanguage(currLang)) {
                 currLang = "en";
             }
 
@@ -35,8 +36,12 @@ export const LanguageContextProvider: React.FC<{ children: React.ReactNode }> = 
         setLanguage(language);
     };
 
+    const validateSupportedLanguage = (selectedLanguage: string) => {
+        return supportedLanguages.includes(selectedLanguage);
+    }
+
     return (
-        <LanguageContext.Provider value={{ language, registerLanguage }}>
+        <LanguageContext.Provider value={{ language, registerLanguage, validateSupportedLanguage }}>
             {children}
         </LanguageContext.Provider>
     );
