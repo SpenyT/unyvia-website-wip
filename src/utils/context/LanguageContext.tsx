@@ -1,4 +1,5 @@
 import React, { useContext, createContext, useState, useEffect, useRef } from "react";
+import { fetchUserCountry } from '../countryOrigin.ts';
 
 export type LanguageContextItem = {
     language: string,
@@ -7,7 +8,14 @@ export type LanguageContextItem = {
 export type LanguageContextValue = {
     language: LanguageContextItem,
     registerLanguage: (language: LanguageContextItem) => void,
-    validateSupportedLanguage: (selectedLanguage: string) => boolean
+    validateSupportedLanguage: (selectedLanguage: string) => boolean,
+    country: Country,
+}
+
+export type Country = {
+    name: string,
+    countryCode2: string,
+    countryCode3: string
 }
 
 const supportedLanguages = ["en", "fr"];
@@ -17,9 +25,17 @@ const LanguageContext = createContext<LanguageContextValue | undefined>( undefin
 
 export const LanguageContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [language, setLanguage] = useState<LanguageContextItem>({language: "en"});
+    const [country, setCountry] = useState<Country>({name: "", countryCode2: "", countryCode3: ""});
     const hasRun = useRef(false);
 
     useEffect(() => {
+        async function getCountry() {
+            const country_res = await fetchUserCountry();
+            if(country_res) {
+                setCountry({name: country_res.name, countryCode2: country_res.country, countryCode3: country_res.country_3})
+            }
+        }
+
         if(!hasRun.current) {
             let currLang = navigator.language.split('-')[0] || "en";
             if (!validateSupportedLanguage(currLang)) {
@@ -27,10 +43,10 @@ export const LanguageContextProvider: React.FC<{ children: React.ReactNode }> = 
             }
 
             setLanguage({language: currLang})
+            getCountry();
             hasRun.current = true;
         }
-    
-    }, [])
+    },)
 
     const registerLanguage = (language: LanguageContextItem) => {
         setLanguage(language);
@@ -41,7 +57,7 @@ export const LanguageContextProvider: React.FC<{ children: React.ReactNode }> = 
     }
 
     return (
-        <LanguageContext.Provider value={{ language, registerLanguage, validateSupportedLanguage }}>
+        <LanguageContext.Provider value={{ language, country, registerLanguage, validateSupportedLanguage }}>
             {children}
         </LanguageContext.Provider>
     );
