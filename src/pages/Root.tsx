@@ -1,14 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar.tsx';
+import { I18nextProvider } from 'react-i18next';
 
-import { LanguageContextProvider } from '../utils/context/LanguageContext.tsx';
+import i18n from '../utils/context/i18n.ts';
 
 export default function Root() {
 
     return(
-        <LanguageContextProvider>
+        <I18nextProvider i18n={i18n}>
             <Navbar />
             <Outlet />
-        </LanguageContextProvider>
+        </I18nextProvider>
     );
 }
